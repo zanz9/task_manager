@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 
+//TODO: Bloc with freezed
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   String login = '';
   String password = '';

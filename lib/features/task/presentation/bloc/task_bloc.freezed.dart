@@ -19,32 +19,44 @@ mixin _$TaskEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String title) addTask,
+    required TResult Function(int id, String title, bool completed) toggleTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String title)? addTask,
+    TResult? Function(int id, String title, bool completed)? toggleTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String title)? addTask,
+    TResult Function(int id, String title, bool completed)? toggleTask,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_ToggleTask value) toggleTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_ToggleTask value)? toggleTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_ToggleTask value)? toggleTask,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,6 +124,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function(String title) addTask,
+    required TResult Function(int id, String title, bool completed) toggleTask,
   }) {
     return started();
   }
@@ -120,6 +134,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
+    TResult? Function(String title)? addTask,
+    TResult? Function(int id, String title, bool completed)? toggleTask,
   }) {
     return started?.call();
   }
@@ -128,6 +144,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function(String title)? addTask,
+    TResult Function(int id, String title, bool completed)? toggleTask,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -140,6 +158,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_ToggleTask value) toggleTask,
   }) {
     return started(this);
   }
@@ -148,6 +168,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_ToggleTask value)? toggleTask,
   }) {
     return started?.call(this);
   }
@@ -156,6 +178,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_ToggleTask value)? toggleTask,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -167,6 +191,321 @@ class _$StartedImpl implements _Started {
 
 abstract class _Started implements TaskEvent {
   const factory _Started() = _$StartedImpl;
+}
+
+/// @nodoc
+abstract class _$$AddTaskImplCopyWith<$Res> {
+  factory _$$AddTaskImplCopyWith(
+          _$AddTaskImpl value, $Res Function(_$AddTaskImpl) then) =
+      __$$AddTaskImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String title});
+}
+
+/// @nodoc
+class __$$AddTaskImplCopyWithImpl<$Res>
+    extends _$TaskEventCopyWithImpl<$Res, _$AddTaskImpl>
+    implements _$$AddTaskImplCopyWith<$Res> {
+  __$$AddTaskImplCopyWithImpl(
+      _$AddTaskImpl _value, $Res Function(_$AddTaskImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+  }) {
+    return _then(_$AddTaskImpl(
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddTaskImpl implements _AddTask {
+  const _$AddTaskImpl({required this.title});
+
+  @override
+  final String title;
+
+  @override
+  String toString() {
+    return 'TaskEvent.addTask(title: $title)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddTaskImpl &&
+            (identical(other.title, title) || other.title == title));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, title);
+
+  /// Create a copy of TaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddTaskImplCopyWith<_$AddTaskImpl> get copyWith =>
+      __$$AddTaskImplCopyWithImpl<_$AddTaskImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String title) addTask,
+    required TResult Function(int id, String title, bool completed) toggleTask,
+  }) {
+    return addTask(title);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String title)? addTask,
+    TResult? Function(int id, String title, bool completed)? toggleTask,
+  }) {
+    return addTask?.call(title);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String title)? addTask,
+    TResult Function(int id, String title, bool completed)? toggleTask,
+    required TResult orElse(),
+  }) {
+    if (addTask != null) {
+      return addTask(title);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_ToggleTask value) toggleTask,
+  }) {
+    return addTask(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_ToggleTask value)? toggleTask,
+  }) {
+    return addTask?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_ToggleTask value)? toggleTask,
+    required TResult orElse(),
+  }) {
+    if (addTask != null) {
+      return addTask(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddTask implements TaskEvent {
+  const factory _AddTask({required final String title}) = _$AddTaskImpl;
+
+  String get title;
+
+  /// Create a copy of TaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddTaskImplCopyWith<_$AddTaskImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ToggleTaskImplCopyWith<$Res> {
+  factory _$$ToggleTaskImplCopyWith(
+          _$ToggleTaskImpl value, $Res Function(_$ToggleTaskImpl) then) =
+      __$$ToggleTaskImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id, String title, bool completed});
+}
+
+/// @nodoc
+class __$$ToggleTaskImplCopyWithImpl<$Res>
+    extends _$TaskEventCopyWithImpl<$Res, _$ToggleTaskImpl>
+    implements _$$ToggleTaskImplCopyWith<$Res> {
+  __$$ToggleTaskImplCopyWithImpl(
+      _$ToggleTaskImpl _value, $Res Function(_$ToggleTaskImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+    Object? completed = null,
+  }) {
+    return _then(_$ToggleTaskImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      completed: null == completed
+          ? _value.completed
+          : completed // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ToggleTaskImpl implements _ToggleTask {
+  const _$ToggleTaskImpl(
+      {required this.id, required this.title, required this.completed});
+
+  @override
+  final int id;
+  @override
+  final String title;
+  @override
+  final bool completed;
+
+  @override
+  String toString() {
+    return 'TaskEvent.toggleTask(id: $id, title: $title, completed: $completed)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleTaskImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.completed, completed) ||
+                other.completed == completed));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, title, completed);
+
+  /// Create a copy of TaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleTaskImplCopyWith<_$ToggleTaskImpl> get copyWith =>
+      __$$ToggleTaskImplCopyWithImpl<_$ToggleTaskImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String title) addTask,
+    required TResult Function(int id, String title, bool completed) toggleTask,
+  }) {
+    return toggleTask(id, title, completed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String title)? addTask,
+    TResult? Function(int id, String title, bool completed)? toggleTask,
+  }) {
+    return toggleTask?.call(id, title, completed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String title)? addTask,
+    TResult Function(int id, String title, bool completed)? toggleTask,
+    required TResult orElse(),
+  }) {
+    if (toggleTask != null) {
+      return toggleTask(id, title, completed);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_ToggleTask value) toggleTask,
+  }) {
+    return toggleTask(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_ToggleTask value)? toggleTask,
+  }) {
+    return toggleTask?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_ToggleTask value)? toggleTask,
+    required TResult orElse(),
+  }) {
+    if (toggleTask != null) {
+      return toggleTask(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToggleTask implements TaskEvent {
+  const factory _ToggleTask(
+      {required final int id,
+      required final String title,
+      required final bool completed}) = _$ToggleTaskImpl;
+
+  int get id;
+  String get title;
+  bool get completed;
+
+  /// Create a copy of TaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ToggleTaskImplCopyWith<_$ToggleTaskImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

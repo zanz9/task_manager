@@ -23,8 +23,7 @@ class TaskLocalImpl implements ITaskLocalDataSource {
 
   @override
   Future<void> setTasks(List<TaskDto> tasks) async {
-    final json = tasks.map((task) => task.toJson()).toList();
-    final jsonStrings = json.map((task) => task.toString()).toList();
+    final jsonStrings = tasks.map((task) => jsonEncode(task.toJson())).toList();
     await _sharedPreferences.setStringList('tasks', jsonStrings);
   }
 
@@ -43,8 +42,8 @@ class TaskLocalImpl implements ITaskLocalDataSource {
       }
       return TaskDto(
         id: task.id,
-        title: request.title,
-        completed: request.completed,
+        title: task.title,
+        completed: task.completed,
         userId: 1,
       );
     }).toList();
