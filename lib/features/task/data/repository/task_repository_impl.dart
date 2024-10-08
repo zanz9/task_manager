@@ -6,6 +6,7 @@ import 'package:task_manager/features/task/data/models/task_dto.dart';
 import 'package:task_manager/features/task/domain/entities/task_entity.dart';
 import 'package:task_manager/features/task/domain/repository/i_task_repository.dart';
 import 'package:task_manager/features/task/domain/requests/change_task_request.dart';
+import 'package:task_manager/features/task/domain/requests/task_complete_or_no_request.dart';
 import 'package:task_manager/features/task/domain/requests/task_id_request.dart';
 import 'package:task_manager/features/task/domain/requests/task_request.dart';
 
@@ -55,6 +56,18 @@ class TaskRepositoryImpl implements ITaskRepository {
       return localTasks.map((dto) => TaskDto2EntityMapper().map(dto)).toList();
     } catch (e) {
       return throw Exception('Failed to delete task: $e');
+    }
+  }
+
+  @override
+  Future<List<TaskEntity>> getTasksByCompletedOrNo(
+      TaskCompleteOrNoRequest request) async {
+    try {
+      final localTasks =
+          await _taskLocalDataSource.getTasksByCompletedOrNo(request);
+      return localTasks.map((dto) => TaskDto2EntityMapper().map(dto)).toList();
+    } catch (e) {
+      return throw Exception('Failed to get tasks by completed or no: $e');
     }
   }
 }

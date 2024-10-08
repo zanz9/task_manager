@@ -14,4 +14,7 @@ class TaskEvent with _$TaskEvent {
   const factory TaskEvent.deleteTask({
     required int id,
   }) = _DeleteTask;
+  const factory TaskEvent.changeCategory({
+    required int category,
+  }) = _ChangeCategory;
 }

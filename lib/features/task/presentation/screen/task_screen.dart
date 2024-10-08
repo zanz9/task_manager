@@ -41,6 +41,8 @@ class _TaskScreenState extends State<TaskScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Задачи'),
+          backgroundColor: AppColors.white,
+          surfaceTintColor: AppColors.white,
           actions: [
             IconButton(
               onPressed: () {
@@ -51,10 +53,12 @@ class _TaskScreenState extends State<TaskScreen> {
                     return _AddTaskModalSheet(
                       textEditingController: addTaskController,
                       onTap: () {
-                        taskBloc.add(
-                          TaskEvent.addTask(title: addTaskController.text),
-                        );
-                        Navigator.pop(context);
+                        if (addTaskController.text.isNotEmpty) {
+                          taskBloc.add(
+                              TaskEvent.addTask(title: addTaskController.text));
+                          Navigator.pop(context);
+                          addTaskController.clear();
+                        }
                       },
                     );
                   },
@@ -69,6 +73,51 @@ class _TaskScreenState extends State<TaskScreen> {
               icon: const Icon(Icons.logout),
             ),
           ],
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(48.0),
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: BlocBuilder<TaskBloc, TaskState>(
+                builder: (context, state) {
+                  if (state is TaskLoaded) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ChipButton(
+                          text: 'Все',
+                          onPressed: () {
+                            taskBloc.add(
+                              const TaskEvent.changeCategory(category: 0),
+                            );
+                          },
+                          outlined: state.category == 0,
+                        ),
+                        ChipButton(
+                          text: 'Выполненные',
+                          onPressed: () {
+                            taskBloc.add(
+                              const TaskEvent.changeCategory(category: 1),
+                            );
+                          },
+                          outlined: state.category == 1,
+                        ),
+                        ChipButton(
+                          text: 'Не выполненные',
+                          onPressed: () {
+                            taskBloc.add(
+                              const TaskEvent.changeCategory(category: 2),
+                            );
+                          },
+                          outlined: state.category == 2,
+                        ),
+                      ],
+                    );
+                  }
+                  return const SizedBox.shrink();
+                },
+              ),
+            ),
+          ),
         ),
         body: BlocBuilder<TaskBloc, TaskState>(
           builder: (context, state) {
@@ -85,20 +134,20 @@ class _TaskScreenState extends State<TaskScreen> {
                     leading: Checkbox(
                       value: task.completed,
                       onChanged: (value) {
-                        context.read<TaskBloc>().add(
-                              TaskEvent.toggleTask(
-                                id: task.id,
-                                title: task.title,
-                                completed: value ?? false,
-                              ),
-                            );
+                        taskBloc.add(
+                          TaskEvent.toggleTask(
+                            id: task.id,
+                            title: task.title,
+                            completed: value ?? false,
+                          ),
+                        );
                       },
                     ),
                     trailing: IconButton(
                       onPressed: () {
-                        context.read<TaskBloc>().add(
-                              TaskEvent.deleteTask(id: task.id),
-                            );
+                        taskBloc.add(
+                          TaskEvent.deleteTask(id: task.id),
+                        );
                       },
                       icon: const Icon(Icons.delete),
                     ),
@@ -111,6 +160,42 @@ class _TaskScreenState extends State<TaskScreen> {
               return const Center(child: Text('Нет доступных задач'));
             }
           },
+        ),
+      ),
+    );
+  }
+}
+
+class ChipButton extends StatelessWidget {
+  const ChipButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.outlined = false,
+  });
+
+  final String text;
+  final VoidCallback onPressed;
+  final bool outlined;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 5,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border:
+              Border.all(color: outlined ? AppColors.white : AppColors.black),
+          color: outlined ? AppColors.black : AppColors.white,
+        ),
+        child: Text(
+          text,
+          style: TextStyle(color: outlined ? AppColors.white : AppColors.black),
         ),
       ),
     );

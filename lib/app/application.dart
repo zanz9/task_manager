@@ -31,6 +31,7 @@ class _MainAppState extends State<MainApp> {
         colorScheme: ColorScheme.fromSeed(
           seedColor: AppColors.primary,
         ),
+        scaffoldBackgroundColor: AppColors.white,
       ),
     );
   }

@@ -6,8 +6,8 @@ part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  String login = '';
-  String password = '';
+  String login = 'test';
+  String password = 'password123';
 
   AuthBloc() : super(const AuthState.initial()) {
     on<_Started>((event, emit) => emit(const AuthState.loaded()));

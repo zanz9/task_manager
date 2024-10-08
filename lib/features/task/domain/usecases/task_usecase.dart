@@ -2,6 +2,7 @@ import 'package:injectable/injectable.dart';
 import 'package:task_manager/features/task/domain/entities/task_entity.dart';
 import 'package:task_manager/features/task/domain/repository/i_task_repository.dart';
 import 'package:task_manager/features/task/domain/requests/change_task_request.dart';
+import 'package:task_manager/features/task/domain/requests/task_complete_or_no_request.dart';
 import 'package:task_manager/features/task/domain/requests/task_id_request.dart';
 import 'package:task_manager/features/task/domain/requests/task_request.dart';
 
@@ -21,5 +22,10 @@ class TaskUseCase {
 
   Future<List<TaskEntity>> deleteTask(TaskIdRequest request) async {
     return await _taskRepository.deleteTask(request);
+  }
+
+  Future<List<TaskEntity>> getTasksByCompletedOrNo(
+      TaskCompleteOrNoRequest request) async {
+    return await _taskRepository.getTasksByCompletedOrNo(request);
   }
 }

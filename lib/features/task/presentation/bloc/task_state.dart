@@ -4,6 +4,9 @@ part of 'task_bloc.dart';
 class TaskState with _$TaskState {
   const factory TaskState.initial() = _Initial;
   const factory TaskState.loading() = TaskLoading;
-  const factory TaskState.loaded(List<TaskEntity> tasks) = TaskLoaded;
+  const factory TaskState.loaded({
+    required List<TaskEntity> tasks,
+    required int category,
+  }) = TaskLoaded;
   const factory TaskState.error(String message) = TaskError;
 }

@@ -8,7 +8,6 @@ class Runner {
     WidgetsFlutterBinding.ensureInitialized();
     await manualSetup();
     configureDependencies();
-    //TODO: talker logger
     const MainApp().run();
   }
 }

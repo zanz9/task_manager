@@ -6,6 +6,7 @@ import 'package:task_manager/core/di/di_init.dart';
 import 'package:task_manager/features/task/data/data_sources/local/i_task_local.dart';
 import 'package:task_manager/features/task/data/models/task_dto.dart';
 import 'package:task_manager/features/task/domain/requests/change_task_request.dart';
+import 'package:task_manager/features/task/domain/requests/task_complete_or_no_request.dart';
 import 'package:task_manager/features/task/domain/requests/task_id_request.dart';
 
 @LazySingleton(as: ITaskLocalDataSource)
@@ -69,6 +70,15 @@ class TaskLocalImpl implements ITaskLocalDataSource {
         tasks.where((task) => task.id != request.id).toList();
     await setTasks(tasksDto);
 
+    return tasksDto;
+  }
+
+  @override
+  Future<List<TaskDto>> getTasksByCompletedOrNo(
+      TaskCompleteOrNoRequest request) async {
+    List<TaskDto> tasks = await getTasks();
+    List<TaskDto> tasksDto =
+        tasks.where((task) => task.completed == request.completed).toList();
     return tasksDto;
   }
 }

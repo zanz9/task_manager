@@ -22,6 +22,7 @@ mixin _$TaskEvent {
     required TResult Function(String title) addTask,
     required TResult Function(int id, String title, bool completed) toggleTask,
     required TResult Function(int id) deleteTask,
+    required TResult Function(int category) changeCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$TaskEvent {
     TResult? Function(String title)? addTask,
     TResult? Function(int id, String title, bool completed)? toggleTask,
     TResult? Function(int id)? deleteTask,
+    TResult? Function(int category)? changeCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$TaskEvent {
     TResult Function(String title)? addTask,
     TResult Function(int id, String title, bool completed)? toggleTask,
     TResult Function(int id)? deleteTask,
+    TResult Function(int category)? changeCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$TaskEvent {
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
     required TResult Function(_DeleteTask value) deleteTask,
+    required TResult Function(_ChangeCategory value) changeCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$TaskEvent {
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
     TResult? Function(_DeleteTask value)? deleteTask,
+    TResult? Function(_ChangeCategory value)? changeCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$TaskEvent {
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
     TResult Function(_DeleteTask value)? deleteTask,
+    TResult Function(_ChangeCategory value)? changeCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,6 +139,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(String title) addTask,
     required TResult Function(int id, String title, bool completed) toggleTask,
     required TResult Function(int id) deleteTask,
+    required TResult Function(int category) changeCategory,
   }) {
     return started();
   }
@@ -144,6 +151,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(String title)? addTask,
     TResult? Function(int id, String title, bool completed)? toggleTask,
     TResult? Function(int id)? deleteTask,
+    TResult? Function(int category)? changeCategory,
   }) {
     return started?.call();
   }
@@ -155,6 +163,7 @@ class _$StartedImpl implements _Started {
     TResult Function(String title)? addTask,
     TResult Function(int id, String title, bool completed)? toggleTask,
     TResult Function(int id)? deleteTask,
+    TResult Function(int category)? changeCategory,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -170,6 +179,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
     required TResult Function(_DeleteTask value) deleteTask,
+    required TResult Function(_ChangeCategory value) changeCategory,
   }) {
     return started(this);
   }
@@ -181,6 +191,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
     TResult? Function(_DeleteTask value)? deleteTask,
+    TResult? Function(_ChangeCategory value)? changeCategory,
   }) {
     return started?.call(this);
   }
@@ -192,6 +203,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
     TResult Function(_DeleteTask value)? deleteTask,
+    TResult Function(_ChangeCategory value)? changeCategory,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -277,6 +289,7 @@ class _$AddTaskImpl implements _AddTask {
     required TResult Function(String title) addTask,
     required TResult Function(int id, String title, bool completed) toggleTask,
     required TResult Function(int id) deleteTask,
+    required TResult Function(int category) changeCategory,
   }) {
     return addTask(title);
   }
@@ -288,6 +301,7 @@ class _$AddTaskImpl implements _AddTask {
     TResult? Function(String title)? addTask,
     TResult? Function(int id, String title, bool completed)? toggleTask,
     TResult? Function(int id)? deleteTask,
+    TResult? Function(int category)? changeCategory,
   }) {
     return addTask?.call(title);
   }
@@ -299,6 +313,7 @@ class _$AddTaskImpl implements _AddTask {
     TResult Function(String title)? addTask,
     TResult Function(int id, String title, bool completed)? toggleTask,
     TResult Function(int id)? deleteTask,
+    TResult Function(int category)? changeCategory,
     required TResult orElse(),
   }) {
     if (addTask != null) {
@@ -314,6 +329,7 @@ class _$AddTaskImpl implements _AddTask {
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
     required TResult Function(_DeleteTask value) deleteTask,
+    required TResult Function(_ChangeCategory value) changeCategory,
   }) {
     return addTask(this);
   }
@@ -325,6 +341,7 @@ class _$AddTaskImpl implements _AddTask {
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
     TResult? Function(_DeleteTask value)? deleteTask,
+    TResult? Function(_ChangeCategory value)? changeCategory,
   }) {
     return addTask?.call(this);
   }
@@ -336,6 +353,7 @@ class _$AddTaskImpl implements _AddTask {
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
     TResult Function(_DeleteTask value)? deleteTask,
+    TResult Function(_ChangeCategory value)? changeCategory,
     required TResult orElse(),
   }) {
     if (addTask != null) {
@@ -447,6 +465,7 @@ class _$ToggleTaskImpl implements _ToggleTask {
     required TResult Function(String title) addTask,
     required TResult Function(int id, String title, bool completed) toggleTask,
     required TResult Function(int id) deleteTask,
+    required TResult Function(int category) changeCategory,
   }) {
     return toggleTask(id, title, completed);
   }
@@ -458,6 +477,7 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult? Function(String title)? addTask,
     TResult? Function(int id, String title, bool completed)? toggleTask,
     TResult? Function(int id)? deleteTask,
+    TResult? Function(int category)? changeCategory,
   }) {
     return toggleTask?.call(id, title, completed);
   }
@@ -469,6 +489,7 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult Function(String title)? addTask,
     TResult Function(int id, String title, bool completed)? toggleTask,
     TResult Function(int id)? deleteTask,
+    TResult Function(int category)? changeCategory,
     required TResult orElse(),
   }) {
     if (toggleTask != null) {
@@ -484,6 +505,7 @@ class _$ToggleTaskImpl implements _ToggleTask {
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
     required TResult Function(_DeleteTask value) deleteTask,
+    required TResult Function(_ChangeCategory value) changeCategory,
   }) {
     return toggleTask(this);
   }
@@ -495,6 +517,7 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
     TResult? Function(_DeleteTask value)? deleteTask,
+    TResult? Function(_ChangeCategory value)? changeCategory,
   }) {
     return toggleTask?.call(this);
   }
@@ -506,6 +529,7 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
     TResult Function(_DeleteTask value)? deleteTask,
+    TResult Function(_ChangeCategory value)? changeCategory,
     required TResult orElse(),
   }) {
     if (toggleTask != null) {
@@ -604,6 +628,7 @@ class _$DeleteTaskImpl implements _DeleteTask {
     required TResult Function(String title) addTask,
     required TResult Function(int id, String title, bool completed) toggleTask,
     required TResult Function(int id) deleteTask,
+    required TResult Function(int category) changeCategory,
   }) {
     return deleteTask(id);
   }
@@ -615,6 +640,7 @@ class _$DeleteTaskImpl implements _DeleteTask {
     TResult? Function(String title)? addTask,
     TResult? Function(int id, String title, bool completed)? toggleTask,
     TResult? Function(int id)? deleteTask,
+    TResult? Function(int category)? changeCategory,
   }) {
     return deleteTask?.call(id);
   }
@@ -626,6 +652,7 @@ class _$DeleteTaskImpl implements _DeleteTask {
     TResult Function(String title)? addTask,
     TResult Function(int id, String title, bool completed)? toggleTask,
     TResult Function(int id)? deleteTask,
+    TResult Function(int category)? changeCategory,
     required TResult orElse(),
   }) {
     if (deleteTask != null) {
@@ -641,6 +668,7 @@ class _$DeleteTaskImpl implements _DeleteTask {
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
     required TResult Function(_DeleteTask value) deleteTask,
+    required TResult Function(_ChangeCategory value) changeCategory,
   }) {
     return deleteTask(this);
   }
@@ -652,6 +680,7 @@ class _$DeleteTaskImpl implements _DeleteTask {
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
     TResult? Function(_DeleteTask value)? deleteTask,
+    TResult? Function(_ChangeCategory value)? changeCategory,
   }) {
     return deleteTask?.call(this);
   }
@@ -663,6 +692,7 @@ class _$DeleteTaskImpl implements _DeleteTask {
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
     TResult Function(_DeleteTask value)? deleteTask,
+    TResult Function(_ChangeCategory value)? changeCategory,
     required TResult orElse(),
   }) {
     if (deleteTask != null) {
@@ -685,12 +715,173 @@ abstract class _DeleteTask implements TaskEvent {
 }
 
 /// @nodoc
+abstract class _$$ChangeCategoryImplCopyWith<$Res> {
+  factory _$$ChangeCategoryImplCopyWith(_$ChangeCategoryImpl value,
+          $Res Function(_$ChangeCategoryImpl) then) =
+      __$$ChangeCategoryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int category});
+}
+
+/// @nodoc
+class __$$ChangeCategoryImplCopyWithImpl<$Res>
+    extends _$TaskEventCopyWithImpl<$Res, _$ChangeCategoryImpl>
+    implements _$$ChangeCategoryImplCopyWith<$Res> {
+  __$$ChangeCategoryImplCopyWithImpl(
+      _$ChangeCategoryImpl _value, $Res Function(_$ChangeCategoryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? category = null,
+  }) {
+    return _then(_$ChangeCategoryImpl(
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeCategoryImpl implements _ChangeCategory {
+  const _$ChangeCategoryImpl({required this.category});
+
+  @override
+  final int category;
+
+  @override
+  String toString() {
+    return 'TaskEvent.changeCategory(category: $category)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeCategoryImpl &&
+            (identical(other.category, category) ||
+                other.category == category));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, category);
+
+  /// Create a copy of TaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeCategoryImplCopyWith<_$ChangeCategoryImpl> get copyWith =>
+      __$$ChangeCategoryImplCopyWithImpl<_$ChangeCategoryImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String title) addTask,
+    required TResult Function(int id, String title, bool completed) toggleTask,
+    required TResult Function(int id) deleteTask,
+    required TResult Function(int category) changeCategory,
+  }) {
+    return changeCategory(category);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String title)? addTask,
+    TResult? Function(int id, String title, bool completed)? toggleTask,
+    TResult? Function(int id)? deleteTask,
+    TResult? Function(int category)? changeCategory,
+  }) {
+    return changeCategory?.call(category);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String title)? addTask,
+    TResult Function(int id, String title, bool completed)? toggleTask,
+    TResult Function(int id)? deleteTask,
+    TResult Function(int category)? changeCategory,
+    required TResult orElse(),
+  }) {
+    if (changeCategory != null) {
+      return changeCategory(category);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_DeleteTask value) deleteTask,
+    required TResult Function(_ChangeCategory value) changeCategory,
+  }) {
+    return changeCategory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_DeleteTask value)? deleteTask,
+    TResult? Function(_ChangeCategory value)? changeCategory,
+  }) {
+    return changeCategory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_DeleteTask value)? deleteTask,
+    TResult Function(_ChangeCategory value)? changeCategory,
+    required TResult orElse(),
+  }) {
+    if (changeCategory != null) {
+      return changeCategory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeCategory implements TaskEvent {
+  const factory _ChangeCategory({required final int category}) =
+      _$ChangeCategoryImpl;
+
+  int get category;
+
+  /// Create a copy of TaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChangeCategoryImplCopyWith<_$ChangeCategoryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$TaskState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<TaskEntity> tasks) loaded,
+    required TResult Function(List<TaskEntity> tasks, int category) loaded,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -698,7 +889,7 @@ mixin _$TaskState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<TaskEntity> tasks)? loaded,
+    TResult? Function(List<TaskEntity> tasks, int category)? loaded,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -706,7 +897,7 @@ mixin _$TaskState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<TaskEntity> tasks)? loaded,
+    TResult Function(List<TaskEntity> tasks, int category)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -801,7 +992,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<TaskEntity> tasks) loaded,
+    required TResult Function(List<TaskEntity> tasks, int category) loaded,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -812,7 +1003,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<TaskEntity> tasks)? loaded,
+    TResult? Function(List<TaskEntity> tasks, int category)? loaded,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -823,7 +1014,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<TaskEntity> tasks)? loaded,
+    TResult Function(List<TaskEntity> tasks, int category)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -918,7 +1109,7 @@ class _$TaskLoadingImpl implements TaskLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<TaskEntity> tasks) loaded,
+    required TResult Function(List<TaskEntity> tasks, int category) loaded,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -929,7 +1120,7 @@ class _$TaskLoadingImpl implements TaskLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<TaskEntity> tasks)? loaded,
+    TResult? Function(List<TaskEntity> tasks, int category)? loaded,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -940,7 +1131,7 @@ class _$TaskLoadingImpl implements TaskLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<TaskEntity> tasks)? loaded,
+    TResult Function(List<TaskEntity> tasks, int category)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -998,7 +1189,7 @@ abstract class _$$TaskLoadedImplCopyWith<$Res> {
           _$TaskLoadedImpl value, $Res Function(_$TaskLoadedImpl) then) =
       __$$TaskLoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<TaskEntity> tasks});
+  $Res call({List<TaskEntity> tasks, int category});
 }
 
 /// @nodoc
@@ -1015,12 +1206,17 @@ class __$$TaskLoadedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? tasks = null,
+    Object? category = null,
   }) {
     return _then(_$TaskLoadedImpl(
-      null == tasks
+      tasks: null == tasks
           ? _value._tasks
           : tasks // ignore: cast_nullable_to_non_nullable
               as List<TaskEntity>,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -1028,7 +1224,9 @@ class __$$TaskLoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TaskLoadedImpl implements TaskLoaded {
-  const _$TaskLoadedImpl(final List<TaskEntity> tasks) : _tasks = tasks;
+  const _$TaskLoadedImpl(
+      {required final List<TaskEntity> tasks, required this.category})
+      : _tasks = tasks;
 
   final List<TaskEntity> _tasks;
   @override
@@ -1039,8 +1237,11 @@ class _$TaskLoadedImpl implements TaskLoaded {
   }
 
   @override
+  final int category;
+
+  @override
   String toString() {
-    return 'TaskState.loaded(tasks: $tasks)';
+    return 'TaskState.loaded(tasks: $tasks, category: $category)';
   }
 
   @override
@@ -1048,12 +1249,14 @@ class _$TaskLoadedImpl implements TaskLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TaskLoadedImpl &&
-            const DeepCollectionEquality().equals(other._tasks, _tasks));
+            const DeepCollectionEquality().equals(other._tasks, _tasks) &&
+            (identical(other.category, category) ||
+                other.category == category));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_tasks));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_tasks), category);
 
   /// Create a copy of TaskState
   /// with the given fields replaced by the non-null parameter values.
@@ -1068,10 +1271,10 @@ class _$TaskLoadedImpl implements TaskLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<TaskEntity> tasks) loaded,
+    required TResult Function(List<TaskEntity> tasks, int category) loaded,
     required TResult Function(String message) error,
   }) {
-    return loaded(tasks);
+    return loaded(tasks, category);
   }
 
   @override
@@ -1079,10 +1282,10 @@ class _$TaskLoadedImpl implements TaskLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<TaskEntity> tasks)? loaded,
+    TResult? Function(List<TaskEntity> tasks, int category)? loaded,
     TResult? Function(String message)? error,
   }) {
-    return loaded?.call(tasks);
+    return loaded?.call(tasks, category);
   }
 
   @override
@@ -1090,12 +1293,12 @@ class _$TaskLoadedImpl implements TaskLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<TaskEntity> tasks)? loaded,
+    TResult Function(List<TaskEntity> tasks, int category)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(tasks);
+      return loaded(tasks, category);
     }
     return orElse();
   }
@@ -1139,9 +1342,12 @@ class _$TaskLoadedImpl implements TaskLoaded {
 }
 
 abstract class TaskLoaded implements TaskState {
-  const factory TaskLoaded(final List<TaskEntity> tasks) = _$TaskLoadedImpl;
+  const factory TaskLoaded(
+      {required final List<TaskEntity> tasks,
+      required final int category}) = _$TaskLoadedImpl;
 
   List<TaskEntity> get tasks;
+  int get category;
 
   /// Create a copy of TaskState
   /// with the given fields replaced by the non-null parameter values.
@@ -1220,7 +1426,7 @@ class _$TaskErrorImpl implements TaskError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<TaskEntity> tasks) loaded,
+    required TResult Function(List<TaskEntity> tasks, int category) loaded,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -1231,7 +1437,7 @@ class _$TaskErrorImpl implements TaskError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<TaskEntity> tasks)? loaded,
+    TResult? Function(List<TaskEntity> tasks, int category)? loaded,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -1242,7 +1448,7 @@ class _$TaskErrorImpl implements TaskError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<TaskEntity> tasks)? loaded,
+    TResult Function(List<TaskEntity> tasks, int category)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
