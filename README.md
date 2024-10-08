@@ -1,3 +1,11 @@
-# task_manager
+# TaskManager
 
-A new Flutter project.
+- Flutter
+- BLoC
+- Clean Architecture
+
+### Dependencies:
+
+- flutter_bloc
+- go_router
+- flutter_shakemywidget

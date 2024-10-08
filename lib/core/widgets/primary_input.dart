@@ -76,6 +76,7 @@ class _PrimaryInputState extends State<PrimaryInput> {
         prefixIcon: widget.prefixIcon,
       ),
       onChanged: widget.onChange,
+      onTapOutside: (event) => FocusScope.of(context).unfocus(),
     );
   }
 }
