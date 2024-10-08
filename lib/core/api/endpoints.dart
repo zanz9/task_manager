@@ -1,4 +1,4 @@
 class EndPoints {
   static const baseUrl = 'https://jsonplaceholder.typicode.com';
-  static const todos = '/todos';
+  static todos(int userId) => '/todos?userId=$userId';
 }

@@ -11,7 +11,8 @@ class TaskRemoteImpl implements ITaskRemoteDataSource {
   Future<List<TaskDto>> getTasks(TaskRequest request) async {
     try {
       final dio = Dio();
-      final response = await dio.get(EndPoints.baseUrl + EndPoints.todos);
+      final response =
+          await dio.get(EndPoints.baseUrl + EndPoints.todos(request.userId));
 
       if (response.statusCode == 200) {
         final data = response.data as List<dynamic>;

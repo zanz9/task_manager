@@ -15,7 +15,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       emit(const TaskState.loading());
       try {
         final tasks = await getIt<TaskUseCase>().getTasks(
-          const TaskRequest(),
+          const TaskRequest(userId: 1),
         );
         emit(TaskState.loaded(tasks));
       } catch (e) {
