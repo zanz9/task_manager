@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/core/theme/colors.dart';
 
 class PrimaryInput extends StatefulWidget {
   final TextEditingController controller;
@@ -54,16 +55,16 @@ class _PrimaryInputState extends State<PrimaryInput> {
       obscureText: obscureText,
       onSubmitted: widget.onSubmitted,
       decoration: InputDecoration(
-        enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.white),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: AppColors.white),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey.shade400),
+          borderSide: BorderSide(color: AppColors.hintColor),
         ),
-        fillColor: Colors.grey.shade200,
+        fillColor: AppColors.primary,
         filled: true,
         hintText: widget.hintText,
-        hintStyle: TextStyle(color: Colors.grey.shade500),
+        hintStyle: TextStyle(color: AppColors.hintColor),
         suffixIcon: widget.obscureText
             ? IconButton(
                 onPressed: toggleObscure,

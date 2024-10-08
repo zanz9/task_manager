@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/core/theme/colors.dart';
 
 class PrimaryButton extends StatefulWidget {
   final Function() onTap;
@@ -35,15 +36,16 @@ class _PrimaryButtonState extends State<PrimaryButton> {
     var theme = Theme.of(context);
     Color getColorFromOutlinedOrNo() {
       if (widget.outlined) {
-        if (isHovering) return Colors.white;
+        if (isHovering) return AppColors.white;
         return theme.scaffoldBackgroundColor;
       } else {
-        if (isHovering) return Colors.grey[850]!;
-        return Colors.black;
+        if (isHovering) return AppColors.shadow;
+        return AppColors.black;
       }
     }
 
-    Color color = widget.isLoading ? Colors.grey : getColorFromOutlinedOrNo();
+    Color color =
+        widget.isLoading ? AppColors.grey : getColorFromOutlinedOrNo();
 
     return MouseRegion(
       cursor: SystemMouseCursors.click,
@@ -73,7 +75,7 @@ class _PrimaryButtonState extends State<PrimaryButton> {
             color: color,
             borderRadius: BorderRadius.circular(widget.borderRadius),
             border: Border.all(
-              color: widget.outlined ? Colors.black : Colors.transparent,
+              color: widget.outlined ? AppColors.black : AppColors.transparent,
             ),
           ),
           child: Center(
