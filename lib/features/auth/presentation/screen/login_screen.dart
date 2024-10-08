@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_shakemywidget/flutter_shakemywidget.dart';
+import 'package:go_router/go_router.dart';
+import 'package:task_manager/core/router/router.dart';
 import 'package:task_manager/core/theme/colors.dart';
 import 'package:task_manager/core/theme/ui_constants.dart';
 import 'package:task_manager/core/widgets/primary_button.dart';
@@ -35,7 +37,7 @@ class LoginScreen extends StatelessWidget {
       child: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthSuccess) {
-            print(123); //TODO: push go
+            context.replace(RouterPaths.task);
           }
         },
         child: Scaffold(

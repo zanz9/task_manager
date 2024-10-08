@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:task_manager/features/auth/presentation/screen/login_screen.dart';
+import 'package:task_manager/features/task/presentation/screen/task_screen.dart';
 
 part 'router_list.dart';
 part 'router_names.dart';
