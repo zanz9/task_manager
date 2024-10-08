@@ -8,7 +8,7 @@ import 'package:task_manager/features/task/domain/repository/i_task_repository.d
 import 'package:task_manager/features/task/domain/requests/change_task_request.dart';
 import 'package:task_manager/features/task/domain/requests/task_request.dart';
 
-@named
+@Named.from(ITaskRepository)
 @LazySingleton(as: ITaskRepository)
 class TaskRepositoryImpl implements ITaskRepository {
   final ITaskRemoteDataSource _taskRemoteDataSource;

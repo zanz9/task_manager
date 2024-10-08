@@ -1,14 +1,15 @@
 import 'dart:convert';
 
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:task_manager/core/di/di_init.dart';
 import 'package:task_manager/features/task/data/data_sources/local/i_task_local.dart';
 import 'package:task_manager/features/task/data/models/task_dto.dart';
 import 'package:task_manager/features/task/domain/requests/change_task_request.dart';
 
+@LazySingleton(as: ITaskLocalDataSource)
 class TaskLocalImpl implements ITaskLocalDataSource {
-  final SharedPreferences _sharedPreferences;
-
-  TaskLocalImpl(this._sharedPreferences);
+  final SharedPreferences _sharedPreferences = getIt<SharedPreferences>();
 
   @override
   Future<List<TaskDto>> getTasks() async {

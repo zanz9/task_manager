@@ -13,7 +13,7 @@ class EmailInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return PrimaryInput(
       controller: emailController,
-      hintText: 'Почта',
+      hintText: 'Логин',
       obscureText: false,
       onSubmitted: (p0) {
         if (onSubmitted != null) onSubmitted!();
