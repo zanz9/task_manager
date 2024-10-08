@@ -12,21 +12,42 @@ import 'package:task_manager/features/auth/presentation/widget/password_input.da
 
 part '../widget/lock_icon_with_animation.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  late TextEditingController emailController;
+  late TextEditingController passwordController;
+  final shakeKey = GlobalKey<ShakeWidgetState>();
+  late AuthBloc authBloc;
+
+  @override
+  void initState() {
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+    authBloc = AuthBloc()..add(const AuthEvent.started());
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    authBloc.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
-    final shakeKey = GlobalKey<ShakeWidgetState>();
-
-    AuthBloc authBloc = AuthBloc()..add(AuthInitialEvent());
     String title = 'Добро пожаловать';
 
     login() {
-      authBloc.add(AuthLoginEvent(
+      authBloc.add(AuthEvent.login(
         email: emailController.text,
         password: passwordController.text,
       ));
@@ -36,7 +57,7 @@ class LoginScreen extends StatelessWidget {
       value: authBloc,
       child: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
-          if (state is AuthSuccess) {
+          if (state is Success) {
             context.replace(RouterPaths.task);
           }
         },
@@ -51,14 +72,14 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     BlocConsumer<AuthBloc, AuthState>(
                       listener: (context, state) {
-                        if (state is AuthFailure) {
+                        if (state is Failure) {
                           shakeKey.currentState?.shake();
                         }
                       },
                       builder: (context, state) {
                         return _LockIconWithAnimation(
                           shakeKey: shakeKey,
-                          color: (state is AuthFailure)
+                          color: (state is Failure)
                               ? AppColors.red
                               : AppColors.black,
                         );
@@ -67,7 +88,7 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(height: 50),
                     BlocBuilder<AuthBloc, AuthState>(
                       builder: (context, state) {
-                        if (state is AuthFailure) {
+                        if (state is Failure) {
                           return Text(
                             state.message,
                             style: theme.textTheme.titleLarge,

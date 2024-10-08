@@ -1,30 +1,25 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 
-//TODO: Bloc with freezed
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   String login = '';
   String password = '';
 
-  AuthBloc() : super(AuthInitial()) {
-    on<AuthInitialEvent>(_init);
-    on<AuthLoginEvent>(_login);
+  AuthBloc() : super(const AuthState.initial()) {
+    on<_Started>((event, emit) => emit(const AuthState.loaded()));
+    on<_Login>((event, emit) => _login(event, emit));
   }
 
-  _init(AuthInitialEvent event, Emitter<AuthState> emit) {
-    emit(AuthLoading());
-    emit(AuthLoaded());
-  }
-
-  _login(AuthLoginEvent event, Emitter<AuthState> emit) {
+  _login(_Login event, Emitter<AuthState> emit) {
     if (event.email == login && event.password == password) {
-      emit(AuthSuccess());
+      emit(const AuthState.success());
     } else {
       String errorMessageFromDb = 'Неверный логин или пароль';
-      emit(AuthFailure(message: errorMessageFromDb));
+      emit(AuthState.failure(message: errorMessageFromDb));
     }
   }
 }

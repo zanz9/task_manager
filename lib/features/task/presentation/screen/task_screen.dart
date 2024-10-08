@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:task_manager/core/router/router.dart';
 import 'package:task_manager/core/theme/colors.dart';
 import 'package:task_manager/core/widgets/primary_button.dart';
 import 'package:task_manager/core/widgets/primary_input.dart';
 import 'package:task_manager/features/task/presentation/bloc/task_bloc.dart';
+
+part '../widget/add_task_modal_sheet.dart';
 
 class TaskScreen extends StatefulWidget {
   const TaskScreen({super.key});
@@ -26,6 +30,7 @@ class _TaskScreenState extends State<TaskScreen> {
   @override
   void dispose() {
     addTaskController.dispose();
+    taskBloc.close();
     super.dispose();
   }
 
@@ -43,7 +48,7 @@ class _TaskScreenState extends State<TaskScreen> {
                   isScrollControlled: true,
                   context: context,
                   builder: (context) {
-                    return AddTaskModalSheet(
+                    return _AddTaskModalSheet(
                       textEditingController: addTaskController,
                       onTap: () {
                         taskBloc.add(
@@ -57,6 +62,12 @@ class _TaskScreenState extends State<TaskScreen> {
               },
               icon: const Icon(Icons.add),
             ),
+            IconButton(
+              onPressed: () {
+                context.replace(RouterPaths.login);
+              },
+              icon: const Icon(Icons.logout),
+            ),
           ],
         ),
         body: BlocBuilder<TaskBloc, TaskState>(
@@ -69,8 +80,9 @@ class _TaskScreenState extends State<TaskScreen> {
                 itemBuilder: (context, index) {
                   final task = state.tasks[index];
                   return ListTile(
+                    key: Key(task.id.toString()),
                     title: Text(task.title),
-                    trailing: Checkbox(
+                    leading: Checkbox(
                       value: task.completed,
                       onChanged: (value) {
                         context.read<TaskBloc>().add(
@@ -82,6 +94,14 @@ class _TaskScreenState extends State<TaskScreen> {
                             );
                       },
                     ),
+                    trailing: IconButton(
+                      onPressed: () {
+                        context.read<TaskBloc>().add(
+                              TaskEvent.deleteTask(id: task.id),
+                            );
+                      },
+                      icon: const Icon(Icons.delete),
+                    ),
                   );
                 },
               );
@@ -92,57 +112,6 @@ class _TaskScreenState extends State<TaskScreen> {
             }
           },
         ),
-      ),
-    );
-  }
-}
-
-class AddTaskModalSheet extends StatelessWidget {
-  const AddTaskModalSheet({
-    super.key,
-    required this.textEditingController,
-    required this.onTap,
-  });
-
-  final TextEditingController textEditingController;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        top: 16,
-        left: 16,
-        right: 16,
-        bottom: 16 + MediaQuery.of(context).viewInsets.bottom,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          PrimaryInput(
-            onSubmitted: (value) {
-              if (value.isNotEmpty) {
-                context.read<TaskBloc>().add(TaskEvent.addTask(title: value));
-                Navigator.pop(context);
-              }
-            },
-            controller: textEditingController,
-            hintText: 'Введите новую задачу',
-          ),
-          const SizedBox(height: 16),
-          PrimaryButton(
-            onTap: onTap,
-            isLoading: false,
-            child: Text(
-              'Добавить задачу',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: AppColors.white,
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }

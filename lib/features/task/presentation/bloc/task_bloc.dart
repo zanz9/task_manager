@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:task_manager/core/di/di_init.dart';
 import 'package:task_manager/features/task/domain/entities/task_entity.dart';
 import 'package:task_manager/features/task/domain/requests/change_task_request.dart';
+import 'package:task_manager/features/task/domain/requests/task_id_request.dart';
 import 'package:task_manager/features/task/domain/requests/task_request.dart';
 import 'package:task_manager/features/task/domain/usecases/task_usecase.dart';
 
@@ -17,6 +18,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     on<_Started>((event, emit) => _initTasks(event, emit));
     on<_AddTask>((event, emit) => _addTask(event, emit));
     on<_ToggleTask>((event, emit) => _toggleTask(event, emit));
+    on<_DeleteTask>((event, emit) => _deleteTask(event, emit));
   }
 
   _initTasks(event, emit) async {
@@ -59,6 +61,15 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       emit(TaskState.loaded(tasks));
     } catch (e) {
       emit(TaskState.error('Не удалось изменить задачу: ${e.toString()}'));
+    }
+  }
+
+  _deleteTask(event, emit) async {
+    try {
+      final tasks = await _taskUseCase.deleteTask(TaskIdRequest(id: event.id));
+      emit(TaskState.loaded(tasks));
+    } catch (e) {
+      emit(TaskState.error('Не удалось удалить задачу: ${e.toString()}'));
     }
   }
 }

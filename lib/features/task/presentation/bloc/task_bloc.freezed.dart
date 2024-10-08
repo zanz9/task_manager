@@ -21,6 +21,7 @@ mixin _$TaskEvent {
     required TResult Function() started,
     required TResult Function(String title) addTask,
     required TResult Function(int id, String title, bool completed) toggleTask,
+    required TResult Function(int id) deleteTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$TaskEvent {
     TResult? Function()? started,
     TResult? Function(String title)? addTask,
     TResult? Function(int id, String title, bool completed)? toggleTask,
+    TResult? Function(int id)? deleteTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$TaskEvent {
     TResult Function()? started,
     TResult Function(String title)? addTask,
     TResult Function(int id, String title, bool completed)? toggleTask,
+    TResult Function(int id)? deleteTask,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$TaskEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_DeleteTask value) deleteTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$TaskEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_DeleteTask value)? deleteTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$TaskEvent {
     TResult Function(_Started value)? started,
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_DeleteTask value)? deleteTask,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,6 +132,7 @@ class _$StartedImpl implements _Started {
     required TResult Function() started,
     required TResult Function(String title) addTask,
     required TResult Function(int id, String title, bool completed) toggleTask,
+    required TResult Function(int id) deleteTask,
   }) {
     return started();
   }
@@ -136,6 +143,7 @@ class _$StartedImpl implements _Started {
     TResult? Function()? started,
     TResult? Function(String title)? addTask,
     TResult? Function(int id, String title, bool completed)? toggleTask,
+    TResult? Function(int id)? deleteTask,
   }) {
     return started?.call();
   }
@@ -146,6 +154,7 @@ class _$StartedImpl implements _Started {
     TResult Function()? started,
     TResult Function(String title)? addTask,
     TResult Function(int id, String title, bool completed)? toggleTask,
+    TResult Function(int id)? deleteTask,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -160,6 +169,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_DeleteTask value) deleteTask,
   }) {
     return started(this);
   }
@@ -170,6 +180,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_DeleteTask value)? deleteTask,
   }) {
     return started?.call(this);
   }
@@ -180,6 +191,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_DeleteTask value)? deleteTask,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -264,6 +276,7 @@ class _$AddTaskImpl implements _AddTask {
     required TResult Function() started,
     required TResult Function(String title) addTask,
     required TResult Function(int id, String title, bool completed) toggleTask,
+    required TResult Function(int id) deleteTask,
   }) {
     return addTask(title);
   }
@@ -274,6 +287,7 @@ class _$AddTaskImpl implements _AddTask {
     TResult? Function()? started,
     TResult? Function(String title)? addTask,
     TResult? Function(int id, String title, bool completed)? toggleTask,
+    TResult? Function(int id)? deleteTask,
   }) {
     return addTask?.call(title);
   }
@@ -284,6 +298,7 @@ class _$AddTaskImpl implements _AddTask {
     TResult Function()? started,
     TResult Function(String title)? addTask,
     TResult Function(int id, String title, bool completed)? toggleTask,
+    TResult Function(int id)? deleteTask,
     required TResult orElse(),
   }) {
     if (addTask != null) {
@@ -298,6 +313,7 @@ class _$AddTaskImpl implements _AddTask {
     required TResult Function(_Started value) started,
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_DeleteTask value) deleteTask,
   }) {
     return addTask(this);
   }
@@ -308,6 +324,7 @@ class _$AddTaskImpl implements _AddTask {
     TResult? Function(_Started value)? started,
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_DeleteTask value)? deleteTask,
   }) {
     return addTask?.call(this);
   }
@@ -318,6 +335,7 @@ class _$AddTaskImpl implements _AddTask {
     TResult Function(_Started value)? started,
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_DeleteTask value)? deleteTask,
     required TResult orElse(),
   }) {
     if (addTask != null) {
@@ -428,6 +446,7 @@ class _$ToggleTaskImpl implements _ToggleTask {
     required TResult Function() started,
     required TResult Function(String title) addTask,
     required TResult Function(int id, String title, bool completed) toggleTask,
+    required TResult Function(int id) deleteTask,
   }) {
     return toggleTask(id, title, completed);
   }
@@ -438,6 +457,7 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult? Function()? started,
     TResult? Function(String title)? addTask,
     TResult? Function(int id, String title, bool completed)? toggleTask,
+    TResult? Function(int id)? deleteTask,
   }) {
     return toggleTask?.call(id, title, completed);
   }
@@ -448,6 +468,7 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult Function()? started,
     TResult Function(String title)? addTask,
     TResult Function(int id, String title, bool completed)? toggleTask,
+    TResult Function(int id)? deleteTask,
     required TResult orElse(),
   }) {
     if (toggleTask != null) {
@@ -462,6 +483,7 @@ class _$ToggleTaskImpl implements _ToggleTask {
     required TResult Function(_Started value) started,
     required TResult Function(_AddTask value) addTask,
     required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_DeleteTask value) deleteTask,
   }) {
     return toggleTask(this);
   }
@@ -472,6 +494,7 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult? Function(_Started value)? started,
     TResult? Function(_AddTask value)? addTask,
     TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_DeleteTask value)? deleteTask,
   }) {
     return toggleTask?.call(this);
   }
@@ -482,6 +505,7 @@ class _$ToggleTaskImpl implements _ToggleTask {
     TResult Function(_Started value)? started,
     TResult Function(_AddTask value)? addTask,
     TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_DeleteTask value)? deleteTask,
     required TResult orElse(),
   }) {
     if (toggleTask != null) {
@@ -505,6 +529,158 @@ abstract class _ToggleTask implements TaskEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ToggleTaskImplCopyWith<_$ToggleTaskImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteTaskImplCopyWith<$Res> {
+  factory _$$DeleteTaskImplCopyWith(
+          _$DeleteTaskImpl value, $Res Function(_$DeleteTaskImpl) then) =
+      __$$DeleteTaskImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$$DeleteTaskImplCopyWithImpl<$Res>
+    extends _$TaskEventCopyWithImpl<$Res, _$DeleteTaskImpl>
+    implements _$$DeleteTaskImplCopyWith<$Res> {
+  __$$DeleteTaskImplCopyWithImpl(
+      _$DeleteTaskImpl _value, $Res Function(_$DeleteTaskImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of TaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$DeleteTaskImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteTaskImpl implements _DeleteTask {
+  const _$DeleteTaskImpl({required this.id});
+
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'TaskEvent.deleteTask(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteTaskImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of TaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteTaskImplCopyWith<_$DeleteTaskImpl> get copyWith =>
+      __$$DeleteTaskImplCopyWithImpl<_$DeleteTaskImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String title) addTask,
+    required TResult Function(int id, String title, bool completed) toggleTask,
+    required TResult Function(int id) deleteTask,
+  }) {
+    return deleteTask(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(String title)? addTask,
+    TResult? Function(int id, String title, bool completed)? toggleTask,
+    TResult? Function(int id)? deleteTask,
+  }) {
+    return deleteTask?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String title)? addTask,
+    TResult Function(int id, String title, bool completed)? toggleTask,
+    TResult Function(int id)? deleteTask,
+    required TResult orElse(),
+  }) {
+    if (deleteTask != null) {
+      return deleteTask(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_AddTask value) addTask,
+    required TResult Function(_ToggleTask value) toggleTask,
+    required TResult Function(_DeleteTask value) deleteTask,
+  }) {
+    return deleteTask(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_AddTask value)? addTask,
+    TResult? Function(_ToggleTask value)? toggleTask,
+    TResult? Function(_DeleteTask value)? deleteTask,
+  }) {
+    return deleteTask?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AddTask value)? addTask,
+    TResult Function(_ToggleTask value)? toggleTask,
+    TResult Function(_DeleteTask value)? deleteTask,
+    required TResult orElse(),
+  }) {
+    if (deleteTask != null) {
+      return deleteTask(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteTask implements TaskEvent {
+  const factory _DeleteTask({required final int id}) = _$DeleteTaskImpl;
+
+  int get id;
+
+  /// Create a copy of TaskEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeleteTaskImplCopyWith<_$DeleteTaskImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

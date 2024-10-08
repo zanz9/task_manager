@@ -11,4 +11,7 @@ class TaskEvent with _$TaskEvent {
     required String title,
     required bool completed,
   }) = _ToggleTask;
+  const factory TaskEvent.deleteTask({
+    required int id,
+  }) = _DeleteTask;
 }
